@@ -162,7 +162,7 @@ int main(void)
     p2_rec.width = 20;
     p2_rec.height = 100;
 
-    InitWindow(800, 600, "Mike's Pong");
+    InitWindow(WIDTH, HEIGHT, "Mike's Pong");
 
     SetTargetFPS(60);
 
