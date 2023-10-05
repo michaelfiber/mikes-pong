@@ -10,7 +10,7 @@ float p1_speed = 200.0f;
 int p1_score = 0;
 
 Rectangle p2_rec = {0};
-float p2_speed = 10.0f;
+float p2_speed = 200.0f;
 int p2_score = 0;
 
 Vector2 ball = {0};
