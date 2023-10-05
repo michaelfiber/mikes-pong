@@ -108,6 +108,16 @@ void update()
         p1_rec.y += GetFrameTime() * p1_speed;
     }
 
+    if (IsKeyDown(KEY_UP))
+    {
+        p2_rec.y -= GetFrameTime() * p2_speed;
+    }
+
+    if (IsKeyDown(KEY_DOWN))
+    {
+        p2_rec.y += GetFrameTime() * p2_speed;
+    }
+
     constrain_paddle(&p1_rec);
     constrain_paddle(&p2_rec);
 
