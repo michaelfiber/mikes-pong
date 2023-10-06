@@ -91,6 +91,15 @@ bool check_win()
     return false;
 }
 
+void check_collision(Rectangle *rec)
+{
+    if (CheckCollisionCircleRec(ball, ball_radius, *rec))
+    {
+        ball_vel.x = ball_vel.x * -1;
+        ball_vel.y += (ball.y - (rec->y + rec->height / 2)) / 100;
+    }
+}
+
 void update()
 {
     if (check_win())
@@ -123,11 +132,7 @@ void update()
 
     if (ball_vel.x > 0)
     {
-        if (CheckCollisionCircleRec(ball, ball_radius, p2_rec))
-        {
-            ball_vel.x = ball_vel.x * -1;
-            ball_vel.y += (ball.y - (p2_rec.y + p2_rec.height / 2)) / 100;
-        }
+        check_collision(&p2_rec);
 
         if (ball.x + ball_radius > WIDTH)
         {
@@ -138,12 +143,8 @@ void update()
 
     if (ball_vel.x < 0)
     {
-        if (CheckCollisionCircleRec(ball, ball_radius, p1_rec))
-        {
-            ball_vel.x = ball_vel.x * -1;
-            ball_vel.y += (ball.y - (p1_rec.y + p1_rec.height / 2)) / 100;
-        }
-
+        check_collision(&p1_rec);
+        
         if (ball.x - ball_radius < 0)
         {
             p2_score++;
